@@ -1,0 +1,29 @@
+name: Update Timestamp
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  update-timestamp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update timestamp.txt
+        run: |
+          current_time=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "$current_time" > timestamp.txt
+      
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'dharambudh1'
+          git config --global user.email 'dharambudh1@gmail.com'          
+          git add timestamp.txt
+          git commit -m "Update timestamp.txt" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
