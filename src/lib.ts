@@ -83,5 +83,5 @@ export {
   maybeGetBadgeAwardedText,
   getBadgeNumber,
   screenshotElement,
-  generateFauxRepoActivity,
+  // generateFauxRepoActivity,
 };
