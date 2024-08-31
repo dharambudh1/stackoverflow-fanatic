@@ -4,7 +4,7 @@ import * as playwright from 'playwright';
 import * as env from 'env-var';
 
 import {
-  // generateFauxRepoActivity,
+  generateFauxRepoActivity,
   getBadgeNumber,
   maybeGetBadgeAwardedText,
   screenshotElement,
@@ -74,7 +74,7 @@ import {
     const dayProgress = parseInt(text.slice(10).split('/')[0]);
     if (dayProgress === 42) {
       console.log("Create repo activity so workflow doesn't get disabled");
-      // await generateFauxRepoActivity();
+      await generateFauxRepoActivity();
     }
   }
 
