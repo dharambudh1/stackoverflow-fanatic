@@ -4,7 +4,7 @@ import * as playwright from 'playwright';
 import * as env from 'env-var';
 
 import {
-  generateFauxRepoActivity,
+  // generateFauxRepoActivity,
   getBadgeNumber,
   maybeGetBadgeAwardedText,
   screenshotElement,
